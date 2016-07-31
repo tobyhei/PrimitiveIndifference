@@ -1,0 +1,8 @@
+language: csharp
+solution: PrimitiveIndifference.sln
+install:
+  - nuget restore PrimitiveIndifference.sln
+  - nuget install NUnit.Runners -OutputDirectory testrunner
+script:
+  - xbuild PrimitiveIndifference.sln /p:TargetFrameworkVersion="v4.5.1" /p:Configuration=Release
+  - mono ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./PrimitiveIndifferenceTest/bin/Release/PrimitiveIndifferenceTest.dll
