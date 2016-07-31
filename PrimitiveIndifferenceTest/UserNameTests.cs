@@ -1,15 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using PrimitiveIndifferenceTest.Sample;
 
 namespace PrimitiveIndifferenceTest
 {
-    [TestClass]
+    [TestFixture]
     public class UserNameTests
     {
-        private const bool ShouldIgnoreCase = true;
-
-        [TestMethod]
+        [Test]
         public void Test_Username_Minimum_Length_Succeeds()
         {
             //Arrange
@@ -19,10 +17,10 @@ namespace PrimitiveIndifferenceTest
             var username = new UserName(usernameValue);
 
             //Assert
-            Assert.AreEqual(usernameValue, username.ToString(), ShouldIgnoreCase);
+            StringAssert.AreEqualIgnoringCase(usernameValue, username);
         }
 
-        [TestMethod]
+        [Test]
         public void Test_Username_Maximum_Length_Succeeds()
         {
             //Arrange
@@ -32,46 +30,46 @@ namespace PrimitiveIndifferenceTest
             var username = new UserName(usernameValue);
 
             //Assert
-            Assert.AreEqual(usernameValue, username.ToString(), ShouldIgnoreCase);
+            StringAssert.AreEqualIgnoringCase(usernameValue, username);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
+        [Test]
         public void Test_Username_Null_Throws()
         {
             //Arrange
             string usernameValue = null;
 
             //Act
-            var disallowedUsername = new UserName(usernameValue);
+            TestDelegate testDelegate = () => new UserName(usernameValue);
 
-            // Assert - Expects exception
-        }
+            // Assert
+            Assert.That(testDelegate, Throws.TypeOf<ArgumentNullException>());
+    }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [Test]
         public void Test_Username_Zero_Length_Throws()
         {
             //Arrange
             var usernameValue = string.Empty;
 
             //Act
-            var disallowedUsername = new UserName(usernameValue);
+            TestDelegate testDelegate = () => new UserName(usernameValue);
 
-            // Assert - Expects exception
+            // Assert 
+            Assert.That(testDelegate, Throws.TypeOf<ArgumentException>());
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        [Test]
         public void Test_Username_Greater_Than_Maximum_Length_Throws()
         {
             //Arrange
             var usernameValue = new string('t', UserName.MaxUsernameLength+1);
 
             //Act
-            var disallowedUsername = new UserName(usernameValue);
+            TestDelegate testDelegate = () => new UserName(usernameValue);
 
-            // Assert - Expects exception
+            // Assert 
+            Assert.That(testDelegate, Throws.TypeOf<ArgumentOutOfRangeException>());
         }
     }
 }
