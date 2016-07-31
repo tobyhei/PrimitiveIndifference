@@ -3,57 +3,57 @@ using PrimitiveIndifference;
 
 namespace PrimitiveIndifferenceTest.Sample
 {
-    public class ByteWrapper : FormattablePrimitiveWrapper<byte>
+    public class ByteObject : FormattableValueObject<byte>
     {
-        public ByteWrapper(byte value) : base(value) {}
+        public ByteObject(byte value) : base(value) {}
     }
 
-    public class ShortWrapper : FormattablePrimitiveWrapper<short>
+    public class ShortObject : FormattableValueObject<short>
     {
-        public ShortWrapper(short value) : base(value) {}
+        public ShortObject(short value) : base(value) {}
     }
 
-    public class IntWrapper : FormattablePrimitiveWrapper<int>
+    public class IntObject : FormattableValueObject<int>
     {
-        public IntWrapper(int value) : base(value) {}
+        public IntObject(int value) : base(value) {}
     }
 
-    public class LongWrapper : FormattablePrimitiveWrapper<long>
+    public class LongObject : FormattableValueObject<long>
     {
-        public LongWrapper(long value) : base(value) {}
+        public LongObject(long value) : base(value) {}
     }
 
-    public class FloatWrapper : FormattablePrimitiveWrapper<float>
+    public class FloatObject : FormattableValueObject<float>
     {
-        public FloatWrapper(float value) : base(value) {}
+        public FloatObject(float value) : base(value) {}
     }
 
-    public class DoubleWrapper : FormattablePrimitiveWrapper<double>
+    public class DoubleObject : FormattableValueObject<double>
     {
-        public DoubleWrapper(double value) : base(value) {}
+        public DoubleObject(double value) : base(value) {}
     }
 
-    public class DecimalWrapper : FormattablePrimitiveWrapper<decimal>
+    public class DecimalObject : FormattableValueObject<decimal>
     {
-        public DecimalWrapper(decimal value) : base(value) {}
+        public DecimalObject(decimal value) : base(value) {}
     }
 
-    public class DateWrapper : FormattablePrimitiveWrapper<DateTime>
+    public class DateObject : FormattableValueObject<DateTime>
     {
-        public DateWrapper(DateTime value) : base(value) { }
+        public DateObject(DateTime value) : base(value) { }
     }
 
-    public class BoolWrapper : PrimitiveWrapper<bool>
+    public class BoolObject : ValueObject<bool>
     {
-        public BoolWrapper(bool value) : base(value) {}
+        public BoolObject(bool value) : base(value) {}
     }
 
-    public class CharWrapper : PrimitiveWrapper<char>
+    public class CharObject : ValueObject<char>
     {
-        public CharWrapper(char value) : base(value) {}
+        public CharObject(char value) : base(value) {}
     }
 
-    public class UserName : PrimitiveWrapper<string>
+    public class UserName : ValueObject<string>
     {
         // public for testing purposes
         public const byte MaxUsernameLength = 30;

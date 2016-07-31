@@ -2,10 +2,10 @@
 
 namespace PrimitiveIndifference
 {
-    public class FormattablePrimitiveWrapper<T> : PrimitiveWrapper<T>
+    public class FormattableValueObject<T> : ValueObject<T>
         where T : IFormattable, IComparable, IConvertible, IComparable<T>, IEquatable<T>
     {
-        public FormattablePrimitiveWrapper(T value) : base(value)
+        public FormattableValueObject(T value) : base(value)
         {
         }
 

@@ -2,26 +2,26 @@
 
 namespace PrimitiveIndifference
 {
-    public class PrimitiveWrapper<T>
+    public class ValueObject<T>
         where T : IComparable, IConvertible, IComparable<T>, IEquatable<T>
     {
         protected readonly T Value;
 
-        protected PrimitiveWrapper(T value)
+        protected ValueObject(T value)
         {
             Value = value;
         }
 
         public override string ToString() => Value.ToString();
 
-        public static implicit operator T(PrimitiveWrapper<T> wrapper)
+        public static implicit operator T(ValueObject<T> valueObject)
         {
-            return wrapper.Value;
+            return valueObject.Value;
         }
 
         public override bool Equals(object other)
         {
-            var otherVal = other as PrimitiveWrapper<T>;
+            var otherVal = other as ValueObject<T>;
 
             return !ReferenceEquals(otherVal, null) && otherVal.Value.Equals(Value);
         }

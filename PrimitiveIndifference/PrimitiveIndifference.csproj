@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormattablePrimitiveWrapper.cs" />
-    <Compile Include="PrimitiveWrapper.cs" />
+    <Compile Include="FormattableValueObject.cs" />
+    <Compile Include="ValueObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
